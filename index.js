@@ -4,14 +4,14 @@ const Index = require('nedb/lib/indexes');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3000  ;
+const port = process.env.PORT;
 app.listen(port, () => console.log('listening at 3000'));
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
 
 
 const database = new Datastore('public.database.db');
-database.loadDatabase();3
+database.loadDatabase();
 
 
 app.get('/api', (request, response) => {
